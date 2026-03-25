@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // ========= SORTEANDO UM NÚMERO DE UM A CEM ==========
+
+        // function sortear() {
+        //     const np = 100;
+        //     const ns = Math.round(Math.random() * np);
+        //     document.querySelector("h1").innerHTML = ns
+        // }
+
+        // ========= SORTEANDO UM NOME DE UMA LISTA ==========
+
+        // const pessoas = ["Filipe", "Silvana", "Cecília", "Lucca", "Nala"];
+
+        // function sortear() {
+        //     const np = pessoas.length;
+        //     const ns = Math.floor(Math.random() * np);
+        //     document.querySelector("h1").innerHTML = pessoas[ns]
+        // }
+
+        // ========== SORTEANDO CINCO NÚMEROS DE UM A CEM ==========
+
+        function sortear() {
+            const h1 = document.querySelector("h1");
+            h1.innerHTML = ""
+
+            const np = 100;
+
+            for(let i = 1; i <= 5; i++){
+                const ns = Math.round(Math.random() * np);
+                h1.innerHTML += ns + " "
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1></h1>
+    <button onclick="sortear()">Sortear</button>
+</body>
+
+</html>
