@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+
+<body>
+    <script>
+        // Cria um input com o envento oninput chamando uma funcao passando o parâmetro this
+        // Criar um h1
+        // Criar uma função com o parâmetro element
+        // criar uma variável que guarda o valor do element (.value)
+        // guardar o h1 em uma variável
+        // Inserir no h1 o valor do element com innerHTML
+
+        // ========= PERSISTINDO OS DADOS NO LOCAL STORAGE =========
+        // Guardar a variável com o valor do input no local Storage com o setItem() na propriedade "nome"
+        // Antes da função de atualizar, criar uma função que é executada no onload
+        // Essa função guarda em uma variavel a propriedade "nome" com o getItem()
+        // Faz da mesma forma da outra função, passando para dentro do h1 o nome inserido no input, porém em 
+        // vez de ser o valor do input é agora a variávee que pegou o item do local Storage
+
+        onload = function () {
+            let nome = localStorage.getItem("nome");
+
+            let h1 = document.querySelector("h1");
+            h1.innerHTML = nome
+        }
+
+        function atualizar(element) {
+            let valor = element.value;
+
+            let h1 = document.querySelector("h1");
+            h1.innerHTML = valor
+
+            localStorage.setItem("nome", valor);
+        };
+
+    </script>
+
+    <h1></h1>
+    <input type="text" oninput="atualizar(this)">
+</body>
+
+</html>
