@@ -1,48 +1,43 @@
-let inputAdultos = document.querySelector("#adultos");
-let inputCriancas = document.querySelector("#criancas");
-let inputDuracao = document.querySelector("#duracao");
+/*- Carne - 400g por pessoa | +6h - 650g
+- Cerveja - 1200ml por pessoa | +6h - 2000ml
+- Refrigerante/Água - 1000ml por pessoa | +6h 1500ml
+- OBS: Crianças valem por 0,5*/
 
-function calcCarne(duracao) {
-  if (duracao > 6) {
-    return 650;
-  } else {
-    return 400;
-  }
+//Functions for calculating quntity by durantion
+function calcMeat(duration) {
+  if (duration < 6)
+    return 450; //2450
+  else return 650;
 }
-function calcCerveja(duracao) {
-  if (duracao > 6) {
-    return 2000;
-  } else {
-    return 1200;
-  }
+function calcBeer(duration) {
+  if (duration < 6)
+    return 1200; //4800
+  else return 2000;
 }
-function calcBebidas(duracao) {
-  if (duracao > 6) {
-    return 1500;
-  } else {
-    return 1000;
-  }
+function calcRefWater(duration) {
+  if (duration < 6)
+    return 1000; //5000
+  else return 1500;
 }
 
-function calcQuantidade() {
-  let adultosVal = Number(inputAdultos.value);
-  let criancasVal = Number(inputCriancas.value);
-  let duracaoVal = Number(inputDuracao.value);
+//Function for calculanting quantity for person and display the result
+function calculateFoodAndDrinks() {
+  //Select inputs elements
+  const adults = Number(document.querySelector("#adults").value);
+  const kids = Number(document.querySelector("#kids").value);
+  const duration = Number(document.querySelector("#duration").value);
 
-  let totalCarne =
-    calcCarne(duracaoVal) * adultosVal +
-    (calcCarne(duracaoVal) / 2) * criancasVal;
-  let totalCerveja = calcCerveja(duracaoVal) * adultosVal;
-  let totalBebidas =
-    calcBebidas(duracaoVal) * adultosVal +
-    (calcBebidas(duracaoVal) / 2) * criancasVal;
+  //Select result area element
+  const resultArea = document.querySelector("#resultArea");
 
-  let areaResultado = document.querySelector("#resultado");
+  //Calculation per person
+  let meat = calcMeat(duration) * adults + (calcMeat(duration) / 2) * kids;
+  let beer = calcBeer(duration) * adults;
+  let RefWater =
+    calcRefWater(duration) * adults + (calcRefWater(duration) / 2) * kids;
 
-  areaResultado.innerHTML = "";
-
-  areaResultado.innerHTML += `<p>Carne: ${totalCarne / 1000}Kg</p>`;
-  areaResultado.innerHTML += `<p>Latas de cerveja: ${Math.ceil(totalCerveja / 350)}</p>`;
-  areaResultado.innerHTML += `<p>Refrigerante: ${Math.ceil(totalBebidas / 2000)} garrafas 2L</p>`;
-  console.log("Tá funcionando");
+  //Display the result
+  resultArea.innerHTML = `<p>Carne: ${meat / 1000}Kg<p>`;
+  resultArea.innerHTML += `<p>Cerveja: ${Math.ceil(beer / 390)} latas<p>`;
+  resultArea.innerHTML += `<p>Água e Refrigerante: ${Math.ceil(RefWater / 2000)}L<p>`;
 }

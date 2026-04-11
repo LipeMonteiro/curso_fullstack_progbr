@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Video controls</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 500px;
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+        }
+
+        .controls {
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            bottom: 4px;
+            background-color: rgba(0, 0, 0, 0.562);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn {
+            font-size: 20px;
+            color: #fff;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .container:hover .controls {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <video>
+            <source src="2026-03-10 10-21-55.mp4">
+        </video>
+        <div class="controls">
+            <i class="btn ri-replay-10-line" onclick="rewind()"></i>
+            <i class="btn ri-forward-10-line" onclick="next()"></i>
+            <i class="btn ri-play-fill" onclick="play()"></i>
+            <i class="btn ri-pause-line" onclick="pause()"></i>
+            <i class="btn ri-indeterminate-circle-line" onclick="slowDown()"></i>
+            <i class="btn ri-add-circle-line" onclick="increaseSpeed()"></i>
+        </div>
+    </div>
+
+    <script>
+        let video = document.querySelector('video');
+
+        function rewind() {
+            video.currentTime -= 10;
+        }
+
+        function next() {
+            video.currentTime += 10;
+        }
+
+        function play() {
+            video.play();
+        }
+
+        function pause() {  
+            video.pause();
+        }   
+
+         function slowDown() {
+            video.playbackRate -= 0.25;
+        }
+
+        function increaseSpeed() {
+            video.playbackRate += 0.25;
+        }
+    </script>
+
+</body>
+
+</html>
