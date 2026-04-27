@@ -1,5 +1,7 @@
 //Callback é uma função que tem como parâmetro outra função
 
+
+// ========== EXEMPLO 1 ==========
  function ola() {
     console.log('Olá!')
  }
@@ -10,7 +12,7 @@
  }
  saudacao(ola, "Igor")
 
-// ========== EXEMPLO PRÁTICO ================
+// ========== EXEMPLO 2 ================
 
 let usuarios = ["Adriano", "Marcia", "José"];
 
