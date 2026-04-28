@@ -1,3 +1,5 @@
+//Async/Await é basicamente uma forma de executar uma promise
+
 let usuarios = ["Adriano", "Marcia", "José"];
 
 function inserirUsuario(nome,){
@@ -23,7 +25,7 @@ function inserirUsuario(nome,){
 function listarUsuarios(){
     console.log(usuarios);
 }
-
+//Usando Async/Await
 async function executar () {
     await inserirUsuario("Filipe");
     listarUsuarios();
